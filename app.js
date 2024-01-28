@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', indexRouter)
 
-const PORT = +process.env.POST || 3000
+app.set('port', process.env.PORT || 3000)
 const dbConnectionUrl = process.env.MONGODB_KEY || ''
 
 
