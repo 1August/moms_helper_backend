@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "node --env-file=.env app.js",
+    "build": "node app.js",
     "dev": "nodemon --env-file=.env app.js"
   },
   "dependencies": {

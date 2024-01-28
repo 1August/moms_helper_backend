@@ -26,9 +26,9 @@ const handler = serverless(app)
 async function runApp() {
   try {
     await mongoose.connect(dbConnectionUrl)
-    app.listen(app.get('port'), () => {
-      console.log('App is started on:', `http://localhost:${app.get('port')}`)
-    })
+    // app.listen(app.get('port'), () => {
+    //   console.log('App is started on:', `http://localhost:${app.get('port')}`)
+    // })
   } catch (error) {
     console.error(error)
   }
