@@ -21,13 +21,13 @@ app.use('/api', indexRouter)
 app.set('port', process.env.PORT || 3000)
 const dbConnectionUrl = process.env.MONGODB_KEY || ''
 
-export const handler = serverless(app);
+const handler = serverless(app)
 
 async function runApp() {
   try {
     await mongoose.connect(dbConnectionUrl)
-    app.listen(PORT, () => {
-      console.log('App is started on:', `http://localhost:${PORT}`)
+    app.listen(app.get('port'), () => {
+      console.log('App is started on:', `http://localhost:${app.get('port')}`)
     })
   } catch (error) {
     console.error(error)
@@ -35,3 +35,5 @@ async function runApp() {
 }
 
 runApp()
+
+module.exports = handler
