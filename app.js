@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const serverless = require('serverless-http')
 
 const indexRouter = require('./src/routes/index')
 const app = express()
@@ -20,6 +21,7 @@ app.use('/api', indexRouter)
 app.set('port', process.env.PORT || 3000)
 const dbConnectionUrl = process.env.MONGODB_KEY || ''
 
+export const handler = serverless(app);
 
 async function runApp() {
   try {
